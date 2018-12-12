@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RoomTest</string>
+
+    <string name="btn_insert">INSERT</string>
+    <string name="btn_get_all">QUERY (GET ALL)</string>
+    <string name="btn_update">UPDATE</string>
+    <string name="btn_delete">DELETE</string>
+    <string name="btn_get_one">QUERY (GET ONE)</string>
 </resources>

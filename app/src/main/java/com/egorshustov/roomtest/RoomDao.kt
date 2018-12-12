@@ -1,20 +1,26 @@
 package com.egorshustov.roomtest
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RoomDao {
 
-    @Query("select * from records")
-    fun getAllRecords(): List<Record>
-
     @Insert()
     fun insertRecord(record: Record)
 
+    @Query("select note from records WHERE id = :id")
+    fun getOneRecord(id: Int): String
+
+    @Query("select * from records")
+    fun getAllRecords(): List<Record>
+
+    @Update
+    fun updateRecord(vararg record: Record)
+
     @Delete
-    fun deleteRecord(record: Record)
+    fun deleteByUserId(vararg record: Record)
+
+    /*@Query("DELETE FROM records WHERE id = :id")
+    fun deleteByUserId(id: Int)*/
 
 }
