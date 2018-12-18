@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             mDb = AppDatabase.getInstance(this)
 
             btnInsert.setOnClickListener {
-                mDb?.roomDao()?.insertRecord(Record(note = editText.text.toString()))
+                mDb?.roomDao()?.insertRecord(Record(note = editText.text.toString(), subnote = ""))
             }
 
             btnGetOne.setOnClickListener {
@@ -48,12 +48,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             btnUpdate.setOnClickListener {
-                val record = Record(parseInt(editId.text.toString()), editText.text.toString())
+                val record = Record(parseInt(editId.text.toString()), editText.text.toString(), "")
                 mDb?.roomDao()?.updateRecord(record)
             }
 
             btnDelete.setOnClickListener {
-                val record = Record(parseInt(editId.text.toString()), editText.text.toString())
+                val record = Record(parseInt(editId.text.toString()), editText.text.toString(), "")
                 mDb?.roomDao()?.deleteByUserId(record)
             }
 
